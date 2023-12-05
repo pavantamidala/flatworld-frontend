@@ -1,9 +1,10 @@
 import React from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
-import './Form.css'
+import './BookForm.css'
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
-import { resetForm, updateField } from './BookSlice';
+import { resetForm, updateField } from './BookFormSlice';
+import { addBook } from '../BrowseBooks/BrowsBooksSlice';
 const BookForm = () => {
     const dispatch = useAppDispatch();
     const bookForm = useAppSelector((state: RootState) => state.bookForm);
@@ -15,10 +16,17 @@ const BookForm = () => {
     const handleFormReset = () => {
       dispatch(resetForm());
     };
+    const handleSubmit = () => {
+      dispatch(addBook(bookForm))
+    };
   return (
     <div className="book-form-container">
 
-    <Form className="book-form"> 
+    <Form className="book-form" onSubmit={(e) => { 
+        e.preventDefault();
+         handleSubmit(/* pass form data */)
+         return
+         }}> 
       <Form.Group as={Row} controlId="formBookName">
         <Form.Label column sm={3}>
           Book Name
@@ -101,7 +109,7 @@ const BookForm = () => {
         </Col>
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary"  type="submit">
         Submit
       </Button>
     </Form>

@@ -5,7 +5,7 @@ import { store } from "./app/store"
 import App from "./App"
 import "./index.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BookForm from "./features/BookForm/Form"
+import BookForm from "./features/BookForm/BookForm"
 import AppRouter from "./AppRouter"
 import Header from "./Header"
 ReactDOM.createRoot(document.getElementById("root")!).render(

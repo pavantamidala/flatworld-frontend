@@ -1,16 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IBookFormState } from '../../interface';
 
-interface BookFormState {
-  bookName: string;
-  isbn: string;
-  category: string;
-  rowNo: string;
-  bookCount: number;
-  cost: string;
-  availability: boolean;
-}
 
-const initialState: BookFormState = {
+const initialState: IBookFormState = {
   bookName: '',
   isbn: '',
   category: '',

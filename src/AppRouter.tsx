@@ -1,7 +1,7 @@
 // AppRouter.tsx
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import BookForm from "./features/BookForm/Form";
+import BookForm from "./features/BookForm/BookForm";
 import Home from "./features/Home/Home";
 import BrowseBooks from "./features/BrowseBooks/BrowseBooks";
 import Header from "./Header";
