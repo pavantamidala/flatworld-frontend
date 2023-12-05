@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       {/* <App /> */}
       {/* <BookForm></BookForm> */}
-      <AppRouter />;
+      <AppRouter />
     </Provider>
   </React.StrictMode>,
 )
