@@ -24,7 +24,7 @@ const BookForm = () => {
           Book Name
         </Form.Label>
         <Col sm={9}>
-          <Form.Control type="text" placeholder="Enter book name" />
+          <Form.Control type="text" onChange={(e) => handleFieldChange('bookName', e.target.value)} placeholder="Enter book name" />
         </Col>
       </Form.Group>
 
@@ -33,7 +33,7 @@ const BookForm = () => {
           Book ISBN no.
         </Form.Label>
         <Col sm={9}>
-          <Form.Control type="text" placeholder="Enter ISBN no." />
+          <Form.Control type="text" onChange={(e) => handleFieldChange('isbn', e.target.value)} placeholder="Enter ISBN no." />
         </Col>
       </Form.Group>
 
@@ -42,7 +42,9 @@ const BookForm = () => {
           Book Category
         </Form.Label>
         <Col sm={9}>
-          <Form.Control type="text" placeholder="Enter book category" />
+          <Form.Control type="text"
+          onChange={(e) => handleFieldChange('category', e.target.value)}
+          placeholder="Enter book category" />
         </Col>
       </Form.Group>
 
@@ -51,7 +53,9 @@ const BookForm = () => {
           Row No.
         </Form.Label>
         <Col sm={9}>
-          <Form.Control type="text" placeholder="Enter row number" />
+          <Form.Control type="text"
+          onChange={(e) => handleFieldChange('rowNo', e.target.value)}
+          placeholder="Enter row number" />
         </Col>
       </Form.Group>
 
@@ -60,7 +64,9 @@ const BookForm = () => {
           Book Count
         </Form.Label>
         <Col sm={9}>
-          <Form.Control type="number" placeholder="Enter book count" />
+          <Form.Control type="number" 
+          onChange={(e) => handleFieldChange('bookCount', e.target.value)}
+          placeholder="Enter book count" />
         </Col>
       </Form.Group>
 
@@ -69,7 +75,9 @@ const BookForm = () => {
           Cost
         </Form.Label>
         <Col sm={9}>
-          <Form.Control type="text" placeholder="Enter cost" />
+          <Form.Control type="text"
+          onChange={(e) => handleFieldChange('cost', e.target.value)}
+          placeholder="Enter cost" />
         </Col>
       </Form.Group>
 
@@ -81,6 +89,13 @@ const BookForm = () => {
           <Form.Check
             type="switch"
             id="availabilitySwitch"
+            onChange={(e) => 
+                {
+
+                    handleFieldChange('availability', e.target.checked)
+                    console.log("hello")
+                }
+            }
             label="Available"
           />
         </Col>
