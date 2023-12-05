@@ -18,12 +18,11 @@ const BookForm = () => {
   const handleFormReset = () => {
     dispatch(resetForm())
   }
-  const handleSubmit = () => {
-    dispatch(updateId())
+  const handleSubmit = async() => {
+   await dispatch(updateId())
+   dispatch(addBook(bookForm))
+
   }
-  useEffect(()=>{
-    dispatch(addBook(bookForm))
-  },[id])
   return (
     <div className="book-form-container">
       <Form
