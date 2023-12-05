@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Form, Row, Col, Button } from "react-bootstrap"
 import "./BookForm.css"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { RootState } from "../../app/store"
-import { resetForm, updateField } from "./BookFormSlice"
+import { resetForm, updateField, updateId } from "./BookFormSlice"
 import { addBook } from "../BrowseBooks/BrowsBooksSlice"
 const BookForm = () => {
   const dispatch = useAppDispatch()
   const bookForm = useAppSelector((state: RootState) => state.bookForm)
+  const id = useAppSelector((state: RootState) => state.bookForm.id)
+
 
   const handleFieldChange = (field: string, value: any) => {
     dispatch(updateField({ field, value }))
@@ -17,8 +19,11 @@ const BookForm = () => {
     dispatch(resetForm())
   }
   const handleSubmit = () => {
-    dispatch(addBook(bookForm))
+    dispatch(updateId())
   }
+  useEffect(()=>{
+    dispatch(addBook(bookForm))
+  },[id])
   return (
     <div className="book-form-container">
       <Form

@@ -1,5 +1,6 @@
 
 export interface IBookFormState {
+    id:string,
     bookName: string;
     isbn: string;
     category: string;
